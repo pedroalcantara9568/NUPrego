@@ -18,18 +18,20 @@ public class ListarNotasActivity extends AppCompatActivity {
 
     private ListView listView;
     private NotaDAO dao;
-    private List<Aluno> alunos;
-    private List<Aluno> alunosFiltrados = new ArrayList<>();
+    private TextView valor;
+    private List<Nota> notas;
+    private List<Nota> alunosFiltrados = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_alunos);
-
+        setContentView(R.layout.activity_listar_notas);
         listView = findViewById(R.id.listaAlunos);
         dao = new NotaDAO(this);
-        alunos = dao.findAll();
-        alunosFiltrados.addAll(alunos);
+        notas = dao.findAll();
+        valor = findViewById(R.id.txtValor);
+        alunosFiltrados.addAll(notas);
+
         NotaAdapter alunoAdapter = new NotaAdapter(this,alunosFiltrados);
         listView.setAdapter(alunoAdapter);
         registerForContextMenu(listView);
@@ -64,11 +66,15 @@ public class ListarNotasActivity extends AppCompatActivity {
     }
     public void procuraAluno(String nome){
         alunosFiltrados.clear();
-        for(Aluno a : alunos) {
+        double aux = 0;
+        for(Nota a : notas) {
             if(a.getNome().toLowerCase().contains(nome.toLowerCase())){
                 alunosFiltrados.add(a);
+                aux += a.getValor();
+                valor.setText(String.valueOf(aux));
             }
         }
+        valor.setText(String.valueOf(aux));
         listView.invalidateViews();
     }
 
@@ -79,7 +85,7 @@ public class ListarNotasActivity extends AppCompatActivity {
 
     public void excluir(MenuItem item){
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-      final Aluno alunoExcluir = alunosFiltrados.get(menuInfo.position);
+      final Nota notaExcluir = alunosFiltrados.get(menuInfo.position);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("Atençao")
@@ -88,9 +94,9 @@ public class ListarNotasActivity extends AppCompatActivity {
                 .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        alunosFiltrados.remove(alunoExcluir);
-                        alunos.remove(alunoExcluir);
-                        dao.excluir(alunoExcluir);
+                        alunosFiltrados.remove(notaExcluir);
+                        notas.remove(notaExcluir);
+                        dao.excluir(notaExcluir);
                         listView.invalidateViews();
                     }
                 }).create();
@@ -99,19 +105,23 @@ public class ListarNotasActivity extends AppCompatActivity {
 
     public void atualizar(MenuItem item) {
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        final Aluno alunoAtualizar = alunosFiltrados.get(menuInfo.position);
-
+        final Nota notaAtualizar = alunosFiltrados.get(menuInfo.position);
         Intent it = new Intent(this, CadastroNotaActivity.class);
-        it.putExtra("nota", alunoAtualizar);
+        it.putExtra("nota", notaAtualizar);
         startActivity(it);
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        alunos = dao.findAll();
+        notas = dao.findAll();
         alunosFiltrados.clear();
-        alunosFiltrados.addAll(alunos);
+        alunosFiltrados.addAll(notas);
+        double aux = 0;
+        for(Nota a : notas) {
+                aux += a.getValor();
+        }
+        valor.setText(String.valueOf(aux));
         listView.invalidateViews();
     }
 

@@ -1,12 +1,13 @@
 package com.example.appdaamiga;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class Aluno implements Serializable {
+public class Nota implements Serializable {
 
     private Integer id;
     private String nome;
-    private String valor;
+    private Double valor;
     private String descricao;
 
     public void setId(Integer id) {
@@ -17,7 +18,7 @@ public class Aluno implements Serializable {
         this.nome = nome;
     }
 
-    public void setValor(String valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
@@ -33,7 +34,7 @@ public class Aluno implements Serializable {
         return nome;
     }
 
-    public String getValor() {
+    public Double getValor() {
         return valor;
     }
 

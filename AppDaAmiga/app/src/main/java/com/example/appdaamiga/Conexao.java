@@ -16,7 +16,7 @@ public class Conexao extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table nota(id integer primary key autoincrement,"+
-                "nome varchar(30),valor varchar (40), descricao varchar(40))");
+                "nome varchar(30),valor number(4,0), descricao varchar(40))");
 
     }
 

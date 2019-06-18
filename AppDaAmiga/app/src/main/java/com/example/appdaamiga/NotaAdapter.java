@@ -10,27 +10,27 @@ import java.util.List;
 
 public class NotaAdapter extends BaseAdapter {
 
-    private List<Aluno> alunos;
+    private List<Nota> notas;
 
     private Activity activity;
 
-    public NotaAdapter(Activity activity, List<Aluno> alunos) {
+    public NotaAdapter(Activity activity, List<Nota> notas) {
         this.activity = activity;
-        this.alunos = alunos;
+        this.notas = notas;
     }
     @Override
     public int getCount() {
-        return alunos.size();
+        return notas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return alunos.get(position);
+        return notas.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return alunos.get(position).getId();
+        return notas.get(position).getId();
     }
 
     @Override
@@ -40,13 +40,10 @@ public class NotaAdapter extends BaseAdapter {
         TextView valor = v.findViewById(R.id.txtCpf);
         TextView descricao = v.findViewById(R.id.txtTelefone);
 
-        Aluno a = alunos.get(position);
-
+        Nota a = notas.get(position);
         nome.setText(a.getNome());
         descricao.setText(a.getDescricao());
-        valor.setText(a.getValor());
-
-
+        valor.setText(a.getValor().toString());
         return v;
     }
 

@@ -15,7 +15,7 @@ public class CadastroNotaActivity extends  AppCompatActivity {
     private EditText descricao;
     private NotaDAO dao;
 
-    private Aluno aluno = null;
+    private Nota nota = null;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -29,26 +29,26 @@ public class CadastroNotaActivity extends  AppCompatActivity {
 
         Intent it = getIntent();
         if (it.hasExtra("nota" )){
-            aluno =(Aluno) it.getSerializableExtra("nota");
-            nome.setText(aluno.getNome().toString());
-            valor.setText(aluno.getValor().toString());
-            descricao.setText(aluno.getDescricao().toString());
+            nota =(Nota) it.getSerializableExtra("nota");
+            nome.setText(nota.getNome());
+            valor.setText(String.valueOf(nota.getValor()));
+            descricao.setText(nota.getDescricao());
         }
     }
 
     public void salvar (View view) {
-        if(aluno == null ){
-        aluno = new Aluno();
-        aluno.setNome(nome.getText().toString());
-        aluno.setValor(valor.getText().toString());
-        aluno.setDescricao(descricao.getText().toString());
-        long id = dao.inserir(aluno);
+        if(nota == null ){
+        nota = new Nota();
+        nota.setNome(nome.getText().toString());
+        nota.setValor(Double.parseDouble(valor.getText().toString()));
+        nota.setDescricao(descricao.getText().toString());
+        long id = dao.inserir(nota);
         Toast.makeText(this, "Nota inserida com sucesso"  + id, Toast.LENGTH_LONG).show();
         }else{
-            aluno.setNome(nome.getText().toString());
-            aluno.setValor(valor.getText().toString());
-            aluno.setDescricao(descricao.getText().toString());
-            dao.atualizar(aluno);
+            nota.setNome(nome.getText().toString());
+            nota.setValor(Double.parseDouble(valor.getText().toString()));
+            nota.setDescricao(descricao.getText().toString());
+            dao.atualizar(nota);
             Toast.makeText(this, "Nota alterada com sucesso", Toast.LENGTH_LONG).show();
         }
     }
