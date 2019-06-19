@@ -89,7 +89,7 @@ public class ListarNotasActivity extends AppCompatActivity {
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("Atençao")
-                .setMessage("Realmente deseja excluir pessoa ?")
+                .setMessage("Realmente deseja excluir esta nota ?")
                 .setNegativeButton("NÃO",null)
                 .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
                     @Override

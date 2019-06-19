@@ -43,7 +43,7 @@ public class CadastroNotaActivity extends  AppCompatActivity {
         nota.setValor(Double.parseDouble(valor.getText().toString()));
         nota.setDescricao(descricao.getText().toString());
         long id = dao.inserir(nota);
-        Toast.makeText(this, "Nota inserida com sucesso"  + id, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Nota inserida com sucesso", Toast.LENGTH_LONG).show();
         }else{
             nota.setNome(nome.getText().toString());
             nota.setValor(Double.parseDouble(valor.getText().toString()));

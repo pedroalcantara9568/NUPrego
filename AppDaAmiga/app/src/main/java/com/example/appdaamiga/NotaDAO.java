@@ -41,7 +41,6 @@ public class NotaDAO {
     }
 
     public void excluir(Nota a){
-
         banco.delete("nota","id = ?", new String[] {a.getId().toString()});
     }
     public void atualizar( Nota nota){
