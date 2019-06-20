@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AppDaAmiga</string>
+    <string name="saldo">Saldo:</string>
+    <string name="nome">Nome</string>
+    <string name="pedro">Nome</string>
 </resources>

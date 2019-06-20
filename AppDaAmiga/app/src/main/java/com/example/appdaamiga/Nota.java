@@ -2,6 +2,7 @@ package com.example.appdaamiga;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Nota implements Serializable {
 
@@ -13,6 +14,7 @@ public class Nota implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
 
     public void setNome(String nome) {
         this.nome = nome;

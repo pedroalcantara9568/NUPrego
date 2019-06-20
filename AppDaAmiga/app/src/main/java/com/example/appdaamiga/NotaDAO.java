@@ -2,6 +2,7 @@ package com.example.appdaamiga;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -12,6 +13,7 @@ public class NotaDAO {
 
     private Conexao conexao;
     private SQLiteDatabase banco;
+
 
     public NotaDAO(Context context) {
         conexao = new Conexao(context);
@@ -49,6 +51,7 @@ public class NotaDAO {
         values.put("valor",String.valueOf(nota.getValor()));
         values.put("descricao", nota.getDescricao());
         banco.update("nota", values,"id = ?", new String[]{nota.getId().toString()});
+
     }
 
 }

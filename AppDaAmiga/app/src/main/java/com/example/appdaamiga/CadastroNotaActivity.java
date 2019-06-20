@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.*;
 
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 
 public class CadastroNotaActivity extends  AppCompatActivity {
@@ -14,7 +16,6 @@ public class CadastroNotaActivity extends  AppCompatActivity {
     private EditText valor;
     private EditText descricao;
     private NotaDAO dao;
-
     private Nota nota = null;
 
     @Override
@@ -42,7 +43,7 @@ public class CadastroNotaActivity extends  AppCompatActivity {
         nota.setNome(nome.getText().toString());
         nota.setValor(Double.parseDouble(valor.getText().toString()));
         nota.setDescricao(descricao.getText().toString());
-        long id = dao.inserir(nota);
+        dao.inserir(nota);
         Toast.makeText(this, "Nota inserida com sucesso", Toast.LENGTH_LONG).show();
         }else{
             nota.setNome(nome.getText().toString());
