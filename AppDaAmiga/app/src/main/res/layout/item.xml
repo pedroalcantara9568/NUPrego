@@ -12,50 +12,53 @@
 			app:layout_constraintStart_toStartOf="parent"
 			android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:textStyle="bold"
 			app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-			android:layout_marginRight="8dp" android:textSize="14sp" android:textColor="@android:color/white"
-			android:layout_marginTop="8dp"/>
+			android:layout_marginRight="8dp" android:textSize="18sp" android:textColor="#FFFFFF"
+			android:layout_marginTop="8dp"
+			app:layout_constraintBottom_toTopOf="@+id/txtTelefone"/>
 	<TextView
-			android:text="Descrição:"
+			android:text="Data "
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:id="@+id/textView12" android:layout_marginTop="8dp"
+			android:id="@+id/textView12" android:layout_marginTop="4dp"
 			app:layout_constraintTop_toBottomOf="@+id/txtNome" app:layout_constraintStart_toStartOf="parent"
 			android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:textStyle="bold"
 			android:textColorHint="@android:color/black" android:textColor="@android:color/white"
-			android:textSize="14sp" android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+			android:textSize="18sp" android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
 	<TextView
 			android:text="TextView"
 			android:layout_width="0dp"
 			android:layout_height="21dp"
-			android:id="@+id/txtTelefone" android:layout_marginTop="8dp"
+			android:id="@+id/txtTelefone" android:layout_marginTop="4dp"
 			app:layout_constraintTop_toBottomOf="@+id/txtNome"
 			app:layout_constraintStart_toEndOf="@+id/textView12"
-			android:textColor="@android:color/white" android:textSize="14sp"
+			android:textColor="#FFFFFF" android:textSize="18sp"
 			android:layout_marginLeft="4dp"
 			android:layout_marginStart="4dp" android:layout_marginBottom="8dp"
 			app:layout_constraintBottom_toBottomOf="parent"/>
 	<TextView
 			android:text="Valor:"
-			android:layout_width="0dp"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView15"
 			android:textStyle="bold" android:textColorHint="@android:color/black"
-			android:textColor="@android:color/white" android:textSize="14sp"
-			android:layout_marginBottom="8dp"
-			app:layout_constraintBottom_toBottomOf="parent"
+			android:textColor="@android:color/white" android:textSize="18sp"
 			android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtNome"
-			android:layout_marginStart="270dp" app:layout_constraintStart_toStartOf="parent"
-			android:layout_marginLeft="270dp" app:layout_constraintVertical_bias="1.0"/>
+			android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintVertical_bias="1.0"
+			android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/txtCpf"
+			android:layout_marginRight="8dp" app:layout_constraintStart_toEndOf="@+id/txtTelefone"
+			android:layout_marginStart="8dp" android:layout_marginLeft="8dp"
+			app:layout_constraintHorizontal_bias="1.0"/>
 	<TextView
 			android:text="TextView"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:id="@+id/txtCpf" android:layout_marginTop="8dp"
-			app:layout_constraintTop_toBottomOf="@+id/txtNome" android:layout_marginLeft="7dp"
-			android:layout_marginStart="7dp" app:layout_constraintStart_toEndOf="@+id/textView15"
+			android:id="@+id/txtCpf"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintHorizontal_bias="0.016" android:textColor="@android:color/white"
-			android:textSize="14sp"
+			android:textColor="#FFFFFF"
+			android:textSize="18sp"
 			android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-			android:layout_marginRight="8dp" android:layout_marginEnd="8dp"/>
+			android:layout_marginRight="8dp" android:layout_marginEnd="8dp"
+			android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtNome"
+	/>
 </android.support.constraint.ConstraintLayout>

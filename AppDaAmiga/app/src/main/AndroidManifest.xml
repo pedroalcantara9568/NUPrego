@@ -4,7 +4,7 @@
 
     <application
             android:allowBackup="true"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/icone"
             android:label="NuPrego"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">

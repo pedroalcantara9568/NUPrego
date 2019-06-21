@@ -44,12 +44,16 @@ public class CadastroNotaActivity extends  AppCompatActivity {
         nota.setValor(Double.parseDouble(valor.getText().toString()));
         nota.setDescricao(descricao.getText().toString());
         dao.inserir(nota);
+        Intent i = new Intent(this, ListarNotasActivity.class);
+        startActivity(i);
         Toast.makeText(this, "Nota inserida com sucesso", Toast.LENGTH_LONG).show();
         }else{
             nota.setNome(nome.getText().toString());
             nota.setValor(Double.parseDouble(valor.getText().toString()));
             nota.setDescricao(descricao.getText().toString());
             dao.atualizar(nota);
+            Intent i = new Intent(this, ListarNotasActivity.class);
+            startActivity(i);
             Toast.makeText(this, "Nota alterada com sucesso", Toast.LENGTH_LONG).show();
         }
     }
